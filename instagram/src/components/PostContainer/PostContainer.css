@@ -1,0 +1,23 @@
+.postContainer{
+    width: 50%;
+    margin: 20px auto;
+    border: 2px solid lightgrey;
+}
+
+.postContainer .userThumb img {
+    height: 42px;
+    width: 42px;
+    border-radius: 25px;
+    margin-right: 15px;
+}
+
+.postContainer img {
+    width: 100%;
+}
+
+.postContainer .userThumb {
+    width: 95%;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,33 @@
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navContainer .navLinks {
+margin: 25px 5%;
+}
+
+.navContainer .navLinks a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: black;
+    }
+
+.navContainer img {
+    margin: 25px 5%;
+}
+
+.navContainer .searchContainer{
+    margin: 25px 0;
+    width: 15%;
+}
+
+.navContainer .searchContainer .searchBox {
+    width: 100%;
+    height: 28px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    appearance: none;
+}

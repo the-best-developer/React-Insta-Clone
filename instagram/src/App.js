@@ -1,39 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import dummyData from './dummy-data.js';
+import Navigation from './components/SearchBar/Navigation.js';
+import PostContainer from './components/PostContainer/PostContainer.js';
 
-function App() {
+// Examples used from reactjs.org
 
-  return (
-    <div className="App">
+class App extends Component {
 
-      {/* Navigation */}
-      <div className="searchContainer">
+  constructor() {
+    super();
+    this.state = {searchValue: ''};
+    
+    this.searchSubmitHandler = this.searchSubmitHandler.bind(this);
+    this.searchChangeHandler = this.searchChangeHandler.bind(this);
+  }
 
+  searchSubmitHandler(event) {
+    alert('Searched for: ' + this.state.searchValue);
+    event.preventDefault();
+  }
+
+  searchChangeHandler(event) {
+    this.setState({searchValue: event.target.value});
+  }
+
+  render() {
+
+    return (
+      <div className="App">
+
+        {/* Navigation bar */}
+        <Navigation searchValue={this.state.searchValue} searchSubmit={this.searchSubmitHandler} searchChange={this.searchChangeHandler} />
+        
+        {/* Iterate through dummyData array and build PostContainer component using post data */}
         {dummyData.map(post => {
-          return  (<div>
-            <p>{post.id}</p>
-            <p>{post.username}</p>
-            <p>{post.likes}</p>
-            <p>{post.timestamp}</p>
-          </div>
-          )
-      })}
+          return (<PostContainer key={post.id} postData={post} />)
+        })}
 
       </div>
-
-      {/* Post */}
-      <div className="postContainer">
-
-        {/* Post text and comments */}
-        <div className="commentContainer">
-
-        </div>
-
-      </div>
-
-    </div>
-  );
+    );
+  }
 }
 
 export default App;

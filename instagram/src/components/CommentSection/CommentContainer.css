@@ -1,0 +1,26 @@
+.commentContainer {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentContainer .comments {
+    display: flex;
+    flex-direction: column;
+}
+
+.commentContainer .comments span {
+    margin: 10px 0;
+    margin-right: auto;
+}
+
+.commentContainer .actionIcons {
+    display: flex;
+    flex-direction: column;
+}
+
+.commentContainer .actionIcons {
+    margin: 20px 0;
+    margin-right: auto;
+}
