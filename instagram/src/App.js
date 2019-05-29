@@ -10,12 +10,20 @@ class App extends Component {
 
   constructor() {
     super();
-    this.state = {searchValue: ''};
+    this.state = {searchValue: '',
+                  commentValue: '',
+                  dummyData: []
+                 };
     
     this.searchSubmitHandler = this.searchSubmitHandler.bind(this);
     this.searchChangeHandler = this.searchChangeHandler.bind(this);
   }
 
+  componentDidMount() {
+    console.log("component mounted!")
+    this.setState({dummyData: dummyData});
+  }
+  
   searchSubmitHandler(event) {
     alert('Searched for: ' + this.state.searchValue);
     event.preventDefault();
@@ -34,8 +42,15 @@ class App extends Component {
         <Navigation searchValue={this.state.searchValue} searchSubmit={this.searchSubmitHandler} searchChange={this.searchChangeHandler} />
         
         {/* Iterate through dummyData array and build PostContainer component using post data */}
-        {dummyData.map(post => {
-          return (<PostContainer key={post.id} postData={post} />)
+        {this.state.dummyData.map(post => {
+          if (this.state.searchValue) {
+            if(post.username.includes(this.state.searchValue)) {
+              return (<PostContainer key={post.id} postData={post} newCommentChange={this.newCommentChangeHandler} newCommentSubmit={this.newCommentSubmitHandler} />)
+            }
+          }
+          else if (!(this.state.searchValue)) {
+              return (<PostContainer key={post.id} postData={post} newCommentChange={this.newCommentChangeHandler} newCommentSubmit={this.newCommentSubmitHandler} />)
+          }
         })}
 
       </div>

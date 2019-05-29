@@ -8,11 +8,17 @@
 .commentContainer .comments {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
-.commentContainer .comments span {
+.commentContainer .comments div {
     margin: 10px 0;
-    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.commentContainer .comments b {
+    margin-right: 10px;
 }
 
 .commentContainer .actionIcons {
@@ -23,4 +29,15 @@
 .commentContainer .actionIcons {
     margin: 20px 0;
     margin-right: auto;
+}
+
+.commentContainer .timeStamp {
+    margin: 10px 0;
+    margin-right: auto;
+    color: grey;
+}
+
+hr {
+    width: 95%;
+    border: 1px solid lightgrey;
 }
