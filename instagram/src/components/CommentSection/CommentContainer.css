@@ -41,3 +41,18 @@ hr {
     width: 95%;
     border: 1px solid lightgrey;
 }
+
+.commentContainer .actionIcons .commentLinks a {
+    text-decoration: none;
+    color: black;
+    margin: 10px 0;
+}
+
+.commentContainer .actionIcons .commentLinks {
+    display: flex;
+    justify-content: space-between;
+}
+
+.liked {
+    color: red;
+}

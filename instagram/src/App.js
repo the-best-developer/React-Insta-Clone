@@ -11,12 +11,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {searchValue: '',
-                  commentValue: '',
                   dummyData: []
                  };
     
     this.searchSubmitHandler = this.searchSubmitHandler.bind(this);
     this.searchChangeHandler = this.searchChangeHandler.bind(this);
+    this.likedHandler = this.likedHandler.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +33,25 @@ class App extends Component {
     this.setState({searchValue: event.target.value});
   }
 
+  likedHandler(event, id) {
+    let likedPost = [...this.state.dummyData];
+    
+    likedPost.forEach(post => {
+      if (post.id === id) {
+        if (post.liked) {
+          post.liked = !post.liked;
+          post.likes--;
+        }
+        else{
+          post.liked = !post.liked;
+          post.likes++;
+        }
+      }
+
+    this.setState({dummyData: likedPost});
+    });
+  }
+
   render() {
 
     return (
@@ -45,11 +64,11 @@ class App extends Component {
         {this.state.dummyData.map(post => {
           if (this.state.searchValue) {
             if(post.username.includes(this.state.searchValue)) {
-              return (<PostContainer key={post.id} postData={post} newCommentChange={this.newCommentChangeHandler} newCommentSubmit={this.newCommentSubmitHandler} />)
+              return (<PostContainer key={post.id} postData={post} newCommentChange={this.newCommentChangeHandler} newCommentSubmit={this.newCommentSubmitHandler} likedHandler={this.likedHandler} />)
             }
           }
           else if (!(this.state.searchValue)) {
-              return (<PostContainer key={post.id} postData={post} newCommentChange={this.newCommentChangeHandler} newCommentSubmit={this.newCommentSubmitHandler} />)
+              return (<PostContainer key={post.id} postData={post} newCommentChange={this.newCommentChangeHandler} newCommentSubmit={this.newCommentSubmitHandler} likedHandler={this.likedHandler} />)
           }
         })}
 

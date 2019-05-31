@@ -17,7 +17,7 @@ const PostContainer = props => {
             <img src={"https://instagram.fbna1-1.fna.fbcdn.net/vp/6d04b3108c8ce2aa3f17a73f2ca415f1/5D9A6C1E/t51.2885-15/sh0.08/e35/p640x640/59897326_1206793329500987_4303268409379083393_n.jpg?_nc_ht=instagram.fbna1-1.fna.fbcdn.net"} alt=""></img>
 
             {/* Comment section */}
-            <CommentContainer postData={props.postData} newCommentChange={props.newCommentChange} newCommentSubmit={props.newCommentSubmit}/>
+            <CommentContainer postData={props.postData} newCommentChange={props.newCommentChange} newCommentSubmit={props.newCommentSubmit} likedHandler={props.likedHandler}/>
         </div>
     )
 };
