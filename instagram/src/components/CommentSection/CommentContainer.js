@@ -18,10 +18,11 @@ class CommentContainer extends Component {
 
     newCommentSubmit(event) {
         let newComment = [...this.state.commentData]
+        let username = localStorage.getItem('username');
 
         event.preventDefault();
 
-        newComment.push({id: (Date.now()).toString(), username: "Batman", text: this.state.commentValue});
+        newComment.push({id: (Date.now()).toString(), username: username, text: this.state.commentValue});
         this.setState({commentData: newComment})
     }
     
@@ -47,7 +48,7 @@ class CommentContainer extends Component {
 
                         {this.checkLiked()}
 
-                        <a onClick={(event) => this.props.likedHandler(event, this.props.postData.id)} href={"index.html"}><i className="far fa-comment fa-2x"></i></a>
+                        <i className="far fa-comment fa-2x"></i>
                     </div>
 
                     <span><b>{this.props.postData.likes} likes</b></span>
