@@ -1,0 +1,58 @@
+.commentContainer {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentContainer .comments {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.commentContainer .comments div {
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.commentContainer .comments b {
+    margin-right: 10px;
+}
+
+.commentContainer .actionIcons {
+    display: flex;
+    flex-direction: column;
+}
+
+.commentContainer .actionIcons {
+    margin: 20px 0;
+    margin-right: auto;
+}
+
+.commentContainer .timeStamp {
+    margin: 10px 0;
+    margin-right: auto;
+    color: grey;
+}
+
+hr {
+    width: 95%;
+    border: 1px solid lightgrey;
+}
+
+.commentContainer .actionIcons .commentLinks a {
+    text-decoration: none;
+    color: black;
+    margin: 10px 0;
+}
+
+.commentContainer .actionIcons .commentLinks {
+    display: flex;
+    justify-content: space-between;
+}
+
+.liked {
+    color: red;
+}
